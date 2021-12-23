@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hire-app-83a64": {
+      "hosting": {
+        "app": [
+          "hire-app-83a64"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hire-app-83a64"
+  }
+}
