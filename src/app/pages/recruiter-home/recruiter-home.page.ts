@@ -17,15 +17,15 @@ export class RecruiterHomePage implements OnInit {
 
   ngOnInit() {
     this.postJobForm = this.fb.group({
-           _location:['Dublin, County Dublin'],
-          company:['IBM'],
-          description:['A keen interested with demonstrated technical skills and experience in UI front-end development.'],
-          job_type:['Full-Time'],
-          level:['Mid'],
-          salary:[55000],
-          title:['Front End Developer'],
-          technologies:['HTML,CSS, Angular, Bootstrap,GIT'],
-          responsibilities:['Reporting to the Development Manager and working with a local and global team, you will design, code, and test new UI product features. You will also gain experience in build automation, code deployment and work on defect resolution.']
+           _location:[],
+          company:[],
+          description:[],
+          job_type:[],
+          level:[],
+          salary:[],
+          title:[],
+          technologies:[],
+          responsibilities:[]
     });
   }
 
