@@ -1,7 +1,0 @@
-{
-  "name": "hire-app",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
