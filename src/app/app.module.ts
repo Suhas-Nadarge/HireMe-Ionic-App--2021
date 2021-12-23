@@ -12,11 +12,16 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent], 
   entryComponents: [],
-  imports: [BrowserModule,IonicModule.forRoot(),AngularFireStorageModule,AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),AngularFireAuthModule,AngularFireDatabaseModule
+  imports: [BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    IonicModule.forRoot(),AngularFireStorageModule,AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),AngularFireAuthModule,AngularFireDatabaseModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]

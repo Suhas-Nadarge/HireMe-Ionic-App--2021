@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       console.log(JSON.stringify(resp))
      const userobj = resp.filter( user => user.email  === this.loginForm.get('email').value)[0]
      if(userobj && (userobj.password === this.loginForm.get('password').value)){
-       resp['isRecruiter'] ? this.router.navigate(['/recruiter-home']) : this.router.navigate(['/applicant-home'])
+      userobj['isRecruiter'] ? this.router.navigate(['/recruiter-home']) : this.router.navigate(['/applicant-home'])
        this.toastr.presentToast('User logged in successfully','success');
      } else {
       this.toastr.presentToast('Invalid email or password','danger');

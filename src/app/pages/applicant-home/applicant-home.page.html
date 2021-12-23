@@ -2,6 +2,14 @@
   <ion-toolbar>
     <ion-title>search-job</ion-title>
   </ion-toolbar>
+  _location
+company
+description
+job_type
+level
+salary
+title
+
 </ion-header> -->
 
 <ion-content>
@@ -9,33 +17,35 @@
   <div>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Java Developer</ion-card-title>
-      <ion-card-subtitle>Senior</ion-card-subtitle>
+      <ion-card-subtitle>{{jobList[0]?.level}}</ion-card-subtitle>
+      <ion-card-title>{{jobList[0]?.title}} <ion-icon name="heart-outline"></ion-icon></ion-card-title>
 
     </ion-card-header>
   
     <ion-card-content>
-      <p>
-        Responsible for Managing team.
-        Team Player
-        Good Communication
-      </p>
-    </ion-card-content>
-    <ion-button>Apply</ion-button><ion-button>Save Job</ion-button>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Graduate Cloud Engineer</ion-card-title>
-      <ion-card-subtitle>Entry Level</ion-card-subtitle>
+      <!-- <pre> -->
+        <!-- <p><b>Description:</b> {{jobList[0]?.description}}</p> -->
+        <!-- <p><b>Responsibilities:</b> {{jobList[0]?.responsibilities}}</p> -->
+        <p><b>Technologies:</b> {{jobList[0]?.technologies}}</p>
+        <p><b>Salary:</b> €{{jobList[0]?.salary}}</p>
+        <p><b>Type:</b> {{jobList[0]?.job_type}}</p>
 
-    </ion-card-header>
+
+      <!-- </pre> -->
+    </ion-card-content>
+    <ion-button color="dark">View Job</ion-button>
+    <ion-button class="apply-button" color="dark">Apply</ion-button>
+
+    <!-- <ion-card-content>
+      <pre>
+        <p>Responsibilities: {{jobList[0]?.responsibilities}}</p>
+        <p>Salary: €{{jobList[0]?.salary}}</p>
+        <p>Type: {{jobList[0]?.job_type}}</p>
+
+
+      </pre>
+    </ion-card-content> -->
+  </ion-card>
   
-    <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the
-      woods. Wash your spirit clean.
-    </ion-card-content>
-    <ion-button>Apply</ion-button><ion-button>Save Job</ion-button>
-
-  </ion-card>
 </div>
 </ion-content>

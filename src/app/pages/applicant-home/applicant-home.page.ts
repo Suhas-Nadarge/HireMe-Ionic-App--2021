@@ -1,3 +1,4 @@
+import { JobService } from './../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./applicant-home.page.scss'],
 })
 export class ApplicantHomePage implements OnInit {
+  jobList= [];
 
-  constructor() { }
+  constructor(public jobService: JobService) { }
 
   ngOnInit() {
+    this.getAllJObs();
+  }
+  getAllJObs() {
+    this.jobService.getAllJobs().subscribe(resp=>{
+      console.log(resp)
+      this.jobList = resp
+    })
   }
 
 }
