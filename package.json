@@ -32,7 +32,6 @@
     "promise-polyfill": "^8.2.1",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
-    "swiper": "^7.3.3",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -48,6 +47,7 @@
     "@angular/language-service": "~12.0.1",
     "@capacitor/cli": "3.3.3",
     "@ionic/angular-toolkit": "^4.0.0",
+    "@ionic/app-scripts": "^3.2.4",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.20.38",

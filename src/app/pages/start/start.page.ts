@@ -11,7 +11,9 @@ export class StartPage implements OnInit {
 
   constructor(public route:Router) { }
 
+
   ngOnInit() {
+    // this.splashScreen.show();
   }
   redirectLogin(){
     this.route.navigateByUrl('/login')
