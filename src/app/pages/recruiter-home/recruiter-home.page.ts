@@ -1,6 +1,6 @@
 import { JobService } from './../../services/job.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup,FormControlName, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ToasterService } from 'src/app/services/toaster.service';
@@ -17,22 +17,26 @@ export class RecruiterHomePage implements OnInit {
 
   ngOnInit() {
     this.postJobForm = this.fb.group({
-           _location:[],
-          company:[],
-          description:[],
-          job_type:[],
-          level:[],
-          salary:[],
-          title:[],
-          technologies:[],
-          responsibilities:[]
+           _location:[''],
+          company:[''],
+          description:[''],
+          job_type:[''],
+          level:[''],
+          salary:[''],
+          title:[''],
+          technologies:[''],
+          responsibilities:[''],
+          date:[new Date()]
     });
   }
 
   postJob(){
+    console.log(this.postJobForm.value['date'])
     this.jobService.postJob(this.postJobForm.value).then(() => {
+      this.toastr.presentToast('Job posted successfully!','success')
       this.postJobForm.reset();
     }).catch((err) => {
+      this.toastr.presentToast('Job posted successfully!','danger')
       console.log(err)
     });
   }

@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="postJobForm">
+  <form [formGroup] ="postJobForm">
     <ion-item lines="full">
       <ion-label position="floating">Company</ion-label>
       <ion-input type="text" formControlName="company" required></ion-input>
@@ -16,14 +16,45 @@
       <ion-input type="text" formControlName="title" required></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Job Type</ion-label>
-      <ion-input type="text" formControlName="job_type" required></ion-input>
+
+<!--      
+     <ion-item lines="full">
+      <ion-label>Job Type</ion-label>
+      <ion-item placeholder="Select One" formControlName="job_type">
+        <ion-select-option value="Part-Time">Part-Time</ion-select-option>
+        <ion-select-option value="Full-Time">Full-Time</ion-select-option>
+        <ion-select-option value="Contract">Contract</ion-select-option>
+    </ion-item>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Level</ion-label>
-      <ion-input type="text" formControlName="level" required></ion-input>
+      <ion-label>Experience Level</ion-label>
+      <ion-item placeholder="Select One" formControlName="level">
+        <ion-select-option value="Entry">Entry</ion-select-option>
+        <ion-select-option value="Mid">Mid</ion-select-option>
+        <ion-select-option value="Senior">Senior</ion-select-option>
+        <ion-select-option value="Managerial">Managerial</ion-select-option>
+
+    </ion-item>
+    </ion-item> -->
+
+    <ion-item lines="full">
+      <ion-label>Job Type </ion-label>
+      <ion-select placeholder="Select One" formControlName="job_type">
+        <ion-select-option value="Part-Time">Part-Time</ion-select-option>
+        <ion-select-option value="Full-Time">Full-Time</ion-select-option>
+        <ion-select-option value="Contract">Contract</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Experience Level </ion-label>
+      <ion-select placeholder="Select One" formControlName="level">
+        <ion-select-option value="Entry">Entry</ion-select-option>
+        <ion-select-option value="Mid">Mid</ion-select-option>
+        <ion-select-option value="Senior">Senior</ion-select-option>
+        <ion-select-option value="Managerial">Managerial</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item lines="full">
@@ -33,7 +64,7 @@
 
     <ion-item lines="full">
       <ion-label position="floating">Responsibilities</ion-label>
-      <ion-input type="text" formControlName="responsibilities" required></ion-input>
+      <ion-input type="textarea" formControlName="responsibilities" required></ion-input>
     </ion-item>
 
 
