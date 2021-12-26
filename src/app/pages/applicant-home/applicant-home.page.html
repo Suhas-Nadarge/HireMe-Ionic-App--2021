@@ -13,13 +13,16 @@ title
 </ion-header> -->
 
 <ion-content>
-  <ion-searchbar></ion-searchbar>
+  <ion-searchbar placeholder="Search Jobs" [(ngModel)]= "filterTerm" animated="true"></ion-searchbar>
+
   <div>
 
-  <ion-card *ngFor= 'let job of jobList'>
+  <ion-card *ngFor= 'let job of jobList | filter:filterTerm'>
     <ion-card-header>
+      
       <ion-card-subtitle>{{job.level}}</ion-card-subtitle>
-      <ion-card-title>{{job.title}} <ion-icon name="heart-outline"></ion-icon></ion-card-title>
+      
+      <ion-card-title>{{job.title}} <ion-icon  class="wish-icon" name="heart-outline"></ion-icon></ion-card-title>
 
     </ion-card-header>
   
@@ -36,7 +39,7 @@ title
       <!-- </pre> -->
     </ion-card-content>
     <!-- <ion-button color="dark">View Job</ion-button> -->
-    <ion-button class="apply-button" color="dark">View</ion-button>
+    <ion-button class="apply-button" color="dark">View Job</ion-button>
 
     <!-- <ion-card-content>
       <pre>

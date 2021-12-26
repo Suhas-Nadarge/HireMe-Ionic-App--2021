@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicantHomePage implements OnInit {
   jobList= [];
+  filterTerm: string;
 
   constructor(public jobService: JobService) { }
 
