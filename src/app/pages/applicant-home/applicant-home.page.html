@@ -13,7 +13,8 @@ title
 </ion-header> -->
 
 <ion-content>
-  <ion-searchbar placeholder="Search Jobs" [(ngModel)]= "filterTerm" animated="true"></ion-searchbar>
+    <app-menu [pageName] = "SearchJob"></app-menu>
+  <ion-searchbar placeholder="Search" [(ngModel)]= "filterTerm" animated="true"></ion-searchbar>
 
   <div>
 

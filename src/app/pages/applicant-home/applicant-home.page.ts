@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ApplicantHomePage implements OnInit {
   jobList= [];
   filterTerm: string;
-
+  SearchJob = 'Search Job'
   constructor(public jobService: JobService) { }
 
   ngOnInit() {

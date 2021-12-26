@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'applicant-home',
     loadChildren: () => import('./pages/applicant-home/applicant-home.module').then( m => m.ApplicantHomePageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./pages/common/menu/menu.module').then( m => m.MenuPageModule)
   }
 ];
 

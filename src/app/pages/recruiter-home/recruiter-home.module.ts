@@ -1,3 +1,4 @@
+import { MenuPage } from './../common/menu/menu.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +17,6 @@ import { RecruiterHomePage } from './recruiter-home.page';
     ReactiveFormsModule,
     RecruiterHomePageRoutingModule
   ],
-  declarations: [RecruiterHomePage]
+  declarations: [RecruiterHomePage, MenuPage]
 })
 export class RecruiterHomePageModule {}
