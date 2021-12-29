@@ -15,11 +15,8 @@ export class StartPage implements OnInit {
 
 
   ngOnInit() {
-    // this.splashScreen.show();
     setTimeout(() => {
       this.showSplash = false
-      // this.splashScreen.hide();
-
     }, 3500);
     
 

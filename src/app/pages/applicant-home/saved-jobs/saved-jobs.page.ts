@@ -23,13 +23,11 @@ export class SavedJobsPage implements OnInit {
 
   getSavedJObs() {
     this.isLoad =  true;
-    this.jobService.getAllJobs().subscribe(resp=>{
+    this.jobService.getSavedJobs().subscribe(resp=>{
       console.log(resp)
       this.isLoad = false;
       this.jobList = resp;
-      // this.jobList.forEach(el=>{
-      //   this.jobList['isSaved'] = false;
-      // })
+      this.jobList = this.jobList.filter(ele=> ele['email'] === localStorage.getItem('email'));
     }),((err) => {
       this.toastr.presentToast('Something went wrong!','danger')
       console.log(err)

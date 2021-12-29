@@ -1,7 +1,7 @@
+import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
 import { Router } from '@angular/router';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { FilterPopupPage } from './filter-popup/filter-popup.page';
 import { StartPage } from './../start/start.page';
 import { JobService } from './../../services/job.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +18,7 @@ export class ApplicantHomePage implements OnInit {
   filterForm : FormGroup
   filterTerm: string;
   SearchJob = 'Search Job'
-  constructor(public toastr: ToasterService,public route: Router,public jobService: JobService,public modalController: ModalController, public fb: FormBuilder) { }
+  constructor(public toastr: ToasterService,public vibration: Vibration,public route: Router,public jobService: JobService,public modalController: ModalController, public fb: FormBuilder) { }
   isAdded = true;
   ngOnInit() {
     this.filterForm = this.fb.group({
@@ -46,6 +46,7 @@ export class ApplicantHomePage implements OnInit {
       // })
     }),((err) => {
       this.toastr.presentToast('Something went wrong!','danger')
+      this.vibration.vibrate(1000);
       console.log(err)
       this.isLoad =  false;
 
@@ -65,15 +66,15 @@ export class ApplicantHomePage implements OnInit {
     this.isAdded=!this.isAdded;
     this.jobList[index]['isSaved'] = !this.jobList[index]['isSaved']
     const requestObj = job;
-    requestObj['username'] = localStorage.getItem('username'); 
+    requestObj['email'] = localStorage.getItem('email'); 
     this.jobService.saveJobs(requestObj).then(() => {
     this.isLoad =  false;
 
       this.toastr.presentToast(this.jobList[index]['isSaved'] ? 'Job saved successfully!' : 'Job removed successfully','success')
-      // this.getAllJObs();
-      // this.postJobForm.reset();
+      this.vibration.vibrate(1000);
     }).catch((err) => {
       this.toastr.presentToast('Something went wrong!','danger')
+      this.vibration.vibrate(1000);
       console.log(err)
       this.isLoad =  false;
 
@@ -81,9 +82,10 @@ export class ApplicantHomePage implements OnInit {
   }
 
   async openFilter() {
-    const modal = await this.modalController.create({
-    component: FilterPopupPage
-    });
-    return await modal.present();
-   }
+  //   const modal = await this.modalController.create({
+  //   component: FilterPopupPage
+  //   });
+  //   return await modal.present();
+  //  }
+  }
 }

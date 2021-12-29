@@ -1,6 +1,8 @@
+import { LoginService } from 'src/app/services/login.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,52 +10,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  // navigate: any;  
+  navigate = [];  
   showSplash = true;
+  subscription: Subscription;
   constructor(public route: Router,
-    public toaster: ToasterService) {
-
+    public toaster: ToasterService, public loginService: LoginService) {
+      this.subscription = this.loginService.getChangeUser().subscribe(message => {
+        this.setMenu()
+      });
     }
+
   ngOnInit(): void {
-    // this.splashScreen.show();
+    this.setMenu()
     setTimeout(() => {
       this.showSplash = false
-      // this.splashScreen.hide();
-
     }, 2500);
   }
 
-  navigate =   [  
-    { 
-      title : 'Posted Jobs',
-      url   : 'posted-jobs',
-      icon  : 'briefcase',
-      isForward: 'yes',
-      isShow: localStorage.getItem('isRecruiter') === 'true'  ? true : false
-      },
+  setMenu() {
+    this.navigate =   [  
       { 
-        title : 'Saved Jobs',
-        url   : 'saved-jobs',
+        title : 'Posted Jobs',
+        url   : 'posted-jobs',
         icon  : 'briefcase',
         isForward: 'yes',
-        isShow: localStorage.getItem('isRecruiter') === 'true'  ? false : true
-        },
-      { 
-        title : 'Applied Jobs',
-        url   : 'applied-jobs',
-        icon  : 'briefcase',
-        isForward: 'yes',
-        isShow: localStorage.getItem('isRecruiter') === 'true' ? false : true
+        isShow: localStorage.getItem('isRecruiter') === 'true'  ? true : false
         },
         { 
-          title : 'Logout',
-          url   : 'logout',
-          icon  : 'log-out',
-          isForward: 'no',
-          isShow: true
-          }
+          title : 'Saved Jobs',
+          url   : 'saved-jobs',
+          icon  : 'briefcase',
+          isForward: 'yes',
+          isShow: localStorage.getItem('isRecruiter') === 'true'  ? false : true
+          },
+        { 
+          title : 'Applied Jobs',
+          url   : 'applied-jobs',
+          icon  : 'briefcase',
+          isForward: 'yes',
+          isShow: localStorage.getItem('isRecruiter') === 'true' ? false : true
+          },
+          { 
+            title : 'Logout',
+            url   : 'logout',
+            icon  : 'log-out',
+            isForward: 'no',
+            isShow: true
+            }
+  
+      ]; 
+  }
 
-    ]; 
+  
 
   navigateTo(key: string): void{
   switch (key) {
@@ -61,6 +69,7 @@ export class AppComponent implements OnInit{
       localStorage.clear();
       this.route.navigate([''])
       this.toaster.presentToast('Logged out successfully','success')
+      // this.loginService.setUser()
       break;
     case 'posted-jobs':
         this.route.navigate(['posted-jobs'])
@@ -68,6 +77,9 @@ export class AppComponent implements OnInit{
     case 'saved-jobs':
           this.route.navigate(['saved-jobs'])
           break;
+    case 'applied-jobs':
+          this.route.navigate(['applied-jobs'])
+          break;         
   default:
     break;
 }

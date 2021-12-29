@@ -36,7 +36,7 @@ title
 
   <ion-card *ngFor= 'let job of jobList | filter:filterTerm; let i = index'>
     <ion-card-header>
-      <a  style="display: inline-block;position: absolute;right: 0" (click)= "saveJobs(job,i)"><ion-icon class="dark" size="large" style="float: right;" [name]= "!job?.isSaved ? 'add-circle' : 'remove-circle'"></ion-icon>
+      <a style="display: inline-block;position: absolute;right: 0;color: black;" (click)= "saveJobs(job,i)"><ion-icon class="dark" size="large" style="float: right;" [name]= "!job?.isSaved ? 'add-circle' : 'remove-circle'"></ion-icon>
       </a> 
       
       <ion-card-subtitle>{{job.level}}</ion-card-subtitle> 

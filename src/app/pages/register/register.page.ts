@@ -32,7 +32,8 @@ export class RegisterPage implements OnInit {
       this.loginService.createUser(this.registerForm.value)
       .then(() => {
         this.registerForm.reset();
-        this.router.navigate(['/login']);
+        localStorage.clear();
+        this.router.navigate(['login']);
       }).catch((err) => {
         console.log(err)
       });

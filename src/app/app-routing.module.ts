@@ -35,8 +35,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/common/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
-    path: 'saved-jobs',
-    loadChildren: () => import('./pages/applicant-home/saved-jobs/saved-jobs.module').then( m => m.SavedJobsPageModule)
+    path: 'applied-jobs',
+    loadChildren: () => import('./pages/applicant-home/applied-jobs/applied-jobs.module').then( m => m.AppliedJobsPageModule)
   },
   {
     path: 'view-job',

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators'
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  private subject = new Subject<any>();
 
 
   constructor(private db: AngularFirestore) { }
@@ -15,7 +16,6 @@ export class LoginService {
   createUser(user: any) {
     const userData = JSON.parse(JSON.stringify(user));
     return this.db.collection('user').add(userData);
-    
   }
 
   getAllUsers(): Observable<any> {
@@ -35,4 +35,12 @@ export class LoginService {
     return userDetails;
   }
 
+ getChangeUser(): Observable<any> {
+        return this.subject.asObservable();
+    }
+
+    
+    setUser() {
+      this.subject.next(true);
+  }
 }

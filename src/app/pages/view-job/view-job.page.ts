@@ -1,3 +1,5 @@
+import { ToasterService } from 'src/app/services/toaster.service';
+import { JobService } from './../../services/job.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,10 +13,10 @@ import { Router } from '@angular/router';
 export class ViewJobPage implements OnInit {
   pageName = 'View Job'
   currentObj : any;
-  
+  isApplied = false
 
 
-  constructor(public route: Router) { 
+  constructor(public route: Router, public toastr: ToasterService, public jobService: JobService) { 
     
   }
 
@@ -22,7 +24,13 @@ export class ViewJobPage implements OnInit {
     this.currentObj = this.route.getCurrentNavigation().extras.state.object
 
   }
-  applyJob(){
+  applyJob(obj){
+    const reqObj =  obj;
+    reqObj['email'] = localStorage.getItem('email')
+    this.jobService.applyJob(reqObj).then(() => {
+       this.toastr.presentToast('Applied for job successfully, recruiter will contact you on your registered email', 'success');
+       this.isApplied = true;
+    });
   }
 
 

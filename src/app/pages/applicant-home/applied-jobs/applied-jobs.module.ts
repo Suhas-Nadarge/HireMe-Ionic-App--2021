@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FilterPopupPageRoutingModule } from './filter-popup-routing.module';
+import { AppliedJobsPageRoutingModule } from './applied-jobs-routing.module';
 
-import { FilterPopupPage } from './filter-popup.page';
+import { AppliedJobsPage } from './applied-jobs.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FilterPopupPageRoutingModule
+    AppliedJobsPageRoutingModule
   ],
-  declarations: [FilterPopupPage]
+  declarations: [AppliedJobsPage]
 })
-export class FilterPopupPageModule {}
+export class AppliedJobsPageModule {}
