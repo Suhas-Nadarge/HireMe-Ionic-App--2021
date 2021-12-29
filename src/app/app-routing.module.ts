@@ -19,12 +19,28 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recruiter-home/recruiter-home.module').then( m => m.RecruiterHomePageModule)
   },
   {
+    path: 'posted-jobs',
+    loadChildren: () => import('./pages/recruiter-home/posted-jobs/posted-jobs.module').then( m => m.PostedJobsPageModule)
+  },
+  {
     path: 'applicant-home',
     loadChildren: () => import('./pages/applicant-home/applicant-home.module').then( m => m.ApplicantHomePageModule)
   },
   {
+    path: 'saved-jobs',
+    loadChildren: () => import('./pages/applicant-home/saved-jobs/saved-jobs.module').then( m => m.SavedJobsPageModule)
+  },
+  {
     path: 'menu',
     loadChildren: () => import('./pages/common/menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'saved-jobs',
+    loadChildren: () => import('./pages/applicant-home/saved-jobs/saved-jobs.module').then( m => m.SavedJobsPageModule)
+  },
+  {
+    path: 'view-job',
+    loadChildren: () => import('./pages/view-job/view-job.module').then( m => m.ViewJobPageModule)
   }
 ];
 

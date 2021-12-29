@@ -11,7 +11,7 @@ import { ToasterService } from 'src/app/services/toaster.service';
   styleUrls: ['./recruiter-home.page.scss'],
 })
 export class RecruiterHomePage implements OnInit {
-
+  pageName= 'Post Job'
   postJobForm: FormGroup
   constructor(public router:Router, public jobService: JobService,public fb: FormBuilder, public toastr:ToasterService) { }
 
@@ -26,7 +26,9 @@ export class RecruiterHomePage implements OnInit {
           title:[''],
           technologies:[''],
           responsibilities:[''],
-          date:[new Date()]
+          date:[new Date()],
+          isSaved:[false],
+          isApplied:[false]
     });
   }
 

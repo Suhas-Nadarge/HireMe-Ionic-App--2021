@@ -15,8 +15,13 @@ export class JobService {
     
   }
 
+  saveJobs(data: any): any {
+    const jobData = JSON.parse(JSON.stringify(data));
+    return this.db.collection('savedJobs').add(jobData);
+    
+  }
   getAllJobs(): Observable<any> {
-    const users = this.db.collection<any>('jobs').snapshotChanges().pipe(
+    const jobs = this.db.collection<any>('jobs').snapshotChanges().pipe(
       map(actions => {
         return actions.map(
           c => ({
@@ -24,7 +29,19 @@ export class JobService {
             ...c.payload.doc.data()
           }));
       }));
-    return users;
+    return jobs;
+  }
+
+  getSavedJobs(): Observable<any> {
+    const jobs = this.db.collection<any>('savedJobs').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(
+          c => ({
+            postId: c.payload.doc.id,
+            ...c.payload.doc.data()
+          }));
+      }));
+    return jobs;
   }
 }
 

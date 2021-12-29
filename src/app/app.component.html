@@ -2,7 +2,7 @@
 </ion-app> -->
 <!-- Footer without a border -->
 
-<ion-app>  
+<ion-app *ngIf= "!showSplash">  
   <ion-menu side="end" menuId="first" contentId="content">  
     <ion-header>  
       <ion-toolbar color="dark">  
@@ -12,7 +12,7 @@
     <ion-content color="light">  
       <ion-list *ngFor= "let pages of navigate">  
         <ion-menu-toggle auto-hide="true">  
-          <ion-item (click)= "navigateTo(pages.url)" *ngIf= "pages?.isShow" routerDirection="pages.isForward ? forward : backward">  
+          <ion-item (click)= "navigateTo(pages?.url)" *ngIf= "pages?.isShow" routerDirection="pages.isForward ? forward : backward">  
             <ion-icon [name]= "pages.icon" slot="start"></ion-icon>  
               {{pages.title}}   
           </ion-item>  
@@ -22,3 +22,9 @@
   </ion-menu>  
   <ion-router-outlet Id="content"></ion-router-outlet>  
 </ion-app>   
+
+<ion-app  *ngIf= "showSplash" >
+  
+  <img expand="block" style="height: 100%;width: 100%;" src="/assets/icon/background.png">
+  
+</ion-app>

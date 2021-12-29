@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { IonicSlides } from '@ionic/angular';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 
 @Component({
   selector: 'app-start',
@@ -8,12 +9,21 @@ import { IonicSlides } from '@ionic/angular';
   styleUrls: ['./start.page.scss'],
 })
 export class StartPage implements OnInit {
+  showSplash = true;
 
-  constructor(public route:Router) { }
+  constructor(public route:Router, private splashScreen: SplashScreen) { }
 
 
   ngOnInit() {
     // this.splashScreen.show();
+    setTimeout(() => {
+      this.showSplash = false
+      // this.splashScreen.hide();
+
+    }, 3500);
+    
+
+// this.splashScreen.hide();
   }
   redirectLogin(){
     this.route.navigateByUrl('/login')

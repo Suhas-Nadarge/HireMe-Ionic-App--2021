@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     IonicModule.forRoot(),AngularFireStorageModule,AppRoutingModule,AngularFireModule.initializeApp(environment.firebase),AngularFireAuthModule,AngularFireDatabaseModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
